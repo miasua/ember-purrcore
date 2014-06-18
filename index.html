@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+        <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+        <script src="js/vendor/jquery-1.10.2.min.js"></script>
+        <script src="js/plugins.js"></script>
+        <script src="js/vendor/handlebars.js"></script>
+        <script src="js/vendor/ember.js"></script>
+        <script src="js/vendor/ember-data.js"></script>
+        <script src="js/app.js"></script>
+
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/main.css">
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        <div id="mainWrap">
+        </div><!-- #mainWrap -->
+
+        <script type="text/x-handlebars" data-template-name="application">
+            <header>
+                HEADER
+            </header>
+            <nav id="mainNav">
+                <ul>
+                    {{#link-to 'index' tagName="li"}}Home{{/link-to}}
+                    {{#link-to 'about' tagName="li"}}About{{/link-to}}
+                    {{#link-to 'cats' tagName="li"}}Cats{{/link-to}}
+                </ul>
+            </nav>
+            <div id="mainContent">
+                {{outlet}}
+            </div>
+            <footer class="clearfix">
+                FOOTER
+            </footer>
+        </script>
+
+        <script type="text/x-handlebars" data-template-name="index">
+            <h1>{{siteTitle}}</h1>
+            <p>Cred keffiyeh messenger bag, Cosby sweater High Life single-origin coffee hashtag Banksy meh literally McSweeneys. Put a bird on it art party chambray, Blue Bottle American Apparel Kickstarter chia. PBR pork belly street art, slow-carb cardigan blog quinoa Marfa. Typewriter pickled before they sold out</p>
+        </script>
+
+        <script type="text/x-handlebars" data-template-name="about">
+            <h1>{{siteTitle}}</h1>
+            <p>VHS Brooklyn cliche tattooed, drinking vinegar crucifix Pinterest mustache. Authentic single-origin coffee +1, messenger bag Marfa fixie occupy sriracha scenester trust fund locavore cred messenger bag. Fashion axe literally vinyl, actually gluten-free Portland lomo Neutra Austin Brooklyn XOXO.</p>
+        </script>
+
+        <script type='text/x-handlebars' data-template-name='cats'>
+            <h1>Cats • Forget Normcore, time for Purrcore</h1>
+            <ul>
+            {{#each}}
+                {{#link-to 'cat' this tagName='li'}}<h2>{{type}}</h2>{{/link-to}}
+            {{/each}}
+            </ul>
+        </script>
+
+        <script type='text/x-handlebars' data-template-name='cat'>
+            <h1>{{type}}</h1>
+            <img {{bind-attr src='image'}}>
+        </script>
+
+    </body>
+</html>
